@@ -1,0 +1,13 @@
+.eleves-list {
+  li {
+    display: flex;
+    border: none;
+    border-bottom: 1px lightgray solid;
+    margin-bottom: 0;
+    &:last-child { border-bottom: none; }
+
+    .eleve-info {
+      flex-grow: 1;
+    }
+  }
+}

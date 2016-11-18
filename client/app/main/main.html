@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Liste des élèves:</h1>
+      <uib-tabset active="active">
+        <uib-tab ng-repeat="groupe in $ctrl.groupes" heading="{{groupe.name}}">
+            <ul class="list-group eleves-list">
+              <li class="list-group-item"  ng-repeat="eleve in groupe.eleves">
+                <div class="eleve-info">
+                  {{eleve.num}} {{eleve.nom}} {{eleve.prenom}}
+                  <div class="btn-group left pull-right" uib-dropdown is-open="status.isopen">
+                    <button id="single-button" type="button" class="close" uib-dropdown-toggle ng-disabled="disabled">
+                      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                      <li role="menuitem"><a href="#">Switch groupe</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </uib-tab>
+      </uib-tabset>
+    </div>
+  </div>
+
+<!--                 <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <a href id="simple-dropdown" uib-dropdown-toggle>
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </a>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                  <li role="menuitem"><a href="#">Action</a></li>
+                </ul>
+              </div> -->
+<!-- 
+  <form class="thing-form">
+    <label>Syncs in realtime across clients</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="$ctrl.newThing">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addThing()">Add New</button>
+      </span>
+    </p>
+  </form> -->
+</div>

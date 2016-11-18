@@ -1,0 +1,33 @@
+/**
+ * Td model events
+ */
+
+'use strict';
+
+import {EventEmitter} from 'events';
+import Td from './td.model';
+var TdEvents = new EventEmitter();
+
+// Set max event listeners (0 == unlimited)
+TdEvents.setMaxListeners(0);
+
+// Model events
+var events = {
+  save: 'save',
+  remove: 'remove'
+};
+
+// Register the event emitter to the model events
+for(var e in events) {
+  let event = events[e];
+  Td.schema.post(e, emitEvent(event));
+}
+
+function emitEvent(event) {
+  return function(doc) {
+    TdEvents.emit(event + ':' + doc._id, doc);
+    TdEvents.emit(event, doc);
+  };
+}
+
+export default TdEvents;

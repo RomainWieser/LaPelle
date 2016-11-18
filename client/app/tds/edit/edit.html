@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <uib-tabset active="active">
+        <uib-tab ng-repeat="groupe in edit.groupes" heading="{{groupe.name}}">
+          <div class="list-group presence-list" >
+            <div ng-repeat="eleve in groupe.eleves">
+              <button type="button" class="list-group-item eleve-info" ng-click="edit.toggle(eleve._id)">
+                <span ng-class="{'absent' : !edit.isPresent(eleve._id), 'present': edit.isPresent(eleve._id)}"" class="glyphicon glyphicon-user"></span>
+                {{eleve.num}} {{eleve.nom}} {{eleve.prenom}}
+              </button>
+            </div>
+          </div>
+        </uib-tab>
+    </div>
+  </div>
+</div>
